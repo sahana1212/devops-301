@@ -1,10 +1,3 @@
-terraform {
-  backend "local" {
-    path = "/tmp/terraform/workspace/terraform.tfstate"
-  }
-
-}
-
 provider "aws" {
   region = "eu-central-1"
   
@@ -13,8 +6,8 @@ provider "aws" {
 resource "aws_instance" "backend" {
   ami                    = "ami-0cc0a36f626a4fdf5"
   instance_type          = "t2.micro"
-  key_name               = "${var.key_name}"
-  vpc_security_group_ids = ["${var.sg-id}"]
+  key_name               = "master-key"
+  vpc_security_group_ids = "sg-0148dca6ff9624283"
 
 }
 
@@ -22,7 +15,7 @@ resource "null_resource" "remote-exec-1" {
     connection {
     user        = "ubuntu"
     type        = "ssh"
-    private_key = "${file(var.pvt_key)}"
+    private_key = "/root/.ssh/master-key.pem"
     host        = "${aws_instance.backend.public_ip}"
   }
 
