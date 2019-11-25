@@ -14,7 +14,7 @@ resource "null_resource" "remote-exec-1" {
     connection {
     user        = "ubuntu"
     type        = "ssh"
-    private_key = "/root/.ssh/master-key.pem"
+    private_key = "/var/lib/jenkins/master-key.pem"
     host        = "${aws_instance.backend.public_ip}"
   }
 
