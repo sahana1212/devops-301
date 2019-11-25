@@ -10,4 +10,4 @@
   vars_prompt:
   - name: "sshKey"
     prompt: "Enter ssh key file path: (ignore if local)"
-    default: "/home/st/.ssh/github-personal"
+    default: "/root/.ssh/master-key"
