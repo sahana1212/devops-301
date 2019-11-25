@@ -10,4 +10,4 @@
   vars_prompt:
   - name: "sshKey"
     prompt: "Enter ssh key file path: (ignore if local)"
-    default: "/root/.ssh/master-key"
+    default: "/var/lib/jenkins/master-key"
