@@ -7,7 +7,6 @@ resource "aws_instance" "backend" {
   ami                    = "ami-0cc0a36f626a4fdf5"
   instance_type          = "t2.micro"
   key_name               = "master-key"
-  vpc_security_group_ids = "sg-0148dca6ff9624283"
 
 }
 
